@@ -5,5 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Note Taking App</title>
   </head>
-  <body></body>
+  <body>
+    <section class="notes" id="app">
+      <div class="notes__sidebar">
+        <h1 class="notes__heading">Note Taking App</h1>
+        <label
+          ><input class="notes__search-input" type="text" placeholder="Search"
+        /></label>
+        <div class="notes__labels">
+          <input
+            type="radio"
+            name="pick-label"
+            id="notes__notes-label"
+            value="Notes"
+          />
+          <label class="label" for="notes__notes-label">Notes</label>
+          <input
+            type="radio"
+            name="pick-label"
+            id="notes__add-notes-label"
+            value="Add Note"
+          />
+          <label for="notes__add-notes-label">Add Note</label>
+        </div>
+      </div>
+      <div class="notes__list">
+        <div class="notes__pinned-list"></div>
+        <div class="notes__notes-list"></div>
+      </div>
+      <div class="notes__preview">
+        <div class="notes__add-note">
+          <h3 class="notes__add-note-heading">Add Note</h3>
+          <div class="notes__note-fields">
+            <label for="">Title*</label>
+            <input type="text" />
+            <label for="">Author*</label>
+            <input type="text" />
+            <label for="">Your Note*</label>
+            <input type="textarea" />
+          </div>
+          <div class="notes__note-adding-buttons">
+            <button class="notes__adding-button">Add Note</button>
+            <button class="notes__adding-button">Add Pinned Note</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
