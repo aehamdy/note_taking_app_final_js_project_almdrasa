@@ -1,0 +1,29 @@
+:root {
+  --color-accent: #ec7160;
+  --color-accent-hover: #d82600;
+  --color-light-gray-1: #898989; /*noteFontColor/dateColor/notesListButton of note in note list/text/icon of searchInputField / adding note input field label's color*/
+  --color-light-gray-2: #e7e7e9; /*notesListButtonBorder*/
+  --color-light-gray-3: #f6f6f6; /*noteList bg-color / hover on note in notes list / adding note inputField bg-color*/
+  --color-medium-gray-1: #303030; /*noteHeadingColor / menuButtonColor in mobile query*/
+  --color-white: #fff;
+
+  --fw-4: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+}
+
+.notes__heading {
+  font-family: "Aclonica", sans-serif;
+}
