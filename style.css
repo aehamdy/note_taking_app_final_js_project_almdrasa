@@ -9,6 +9,8 @@
 
   --fw-4: 400;
 
+  --gutter-10: 10px;
+
   --transition-timing: 0.3s;
 }
 * {
@@ -29,7 +31,6 @@ body {
 #app {
   height: 100vh;
   display: flex;
-  gap: 1rem;
 }
 
 .notes__sidebar {
@@ -101,4 +102,116 @@ body {
   font-weight: 600;
   color: var(--color-medium-gray-1);
   border-inline-start: 3px solid red;
+}
+
+/* ========== Notes List ========== */
+.notes__list {
+  position: relative;
+  width: 20%;
+  border-inline-end: 1px solid var(--color-light-gray-2);
+  /* padding: 35px 0;
+  border-inline-end: 1px solid var(--color-light-gray-2);
+  overflow-y: scroll;
+  scrollbar-width: none; */
+  /* scrollbar-width: thin; */
+  /* scrollbar-color: var(--color-accent) #fff; */
+}
+/* .notes__list::-webkit-scrollbar {
+  width: 16px;
+}
+.notes-list::-webkit-scrollbar-track {
+  background-color: red;
+  border-radius: 50px;
+}
+.notes__list::-webkit-scrollbar-thumb {
+
+} */
+.notes__arrow-icon {
+  position: absolute;
+  right: -14px;
+  top: 80px;
+  width: 28px;
+  cursor: pointer;
+}
+.notes__container {
+  padding: 35px 0;
+  /* overflow-y: hidden; */
+  /* scrollbar-width: none; */
+}
+.notes__pinned-flag {
+  display: block;
+  padding-inline-start: var(--gutter-10);
+  font-size: 1.4rem;
+  font-weight: var(--fw-4);
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+.notes__notes-flag {
+  display: block;
+  border-top: 1px solid var(--color-light-gray-2);
+  border-bottom: 1px solid var(--color-light-gray-2);
+  padding: var(--gutter-10);
+  color: var(--color-accent);
+}
+.notes__pinned-flag,
+.notes__notes-flag {
+  padding-inline-start: 25px;
+}
+.notes__notes-list,
+.notes__pinned-list {
+  padding: 8px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.notes__note-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 10px 10px;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+
+  .notes__note-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-medium-gray-1);
+  }
+
+  .notes__note-body {
+    font-size: 1.5rem;
+    line-height: 17px;
+    color: var(--color-light-gray-1);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .notes__note-footer {
+    display: flex;
+    justify-content: space-between;
+
+    .notes__note-updated {
+      color: var(--color-light-gray-1);
+      font-size: 1.2rem;
+    }
+
+    .notes__note-delete {
+      all: unset;
+      color: var(--color-accent);
+      cursor: pointer;
+      transition: var(--transition-timing);
+    }
+
+    .notes__note-delete:hover {
+      color: var(--color-accent-hover);
+    }
+  }
+}
+
+.notes__note-item:hover {
+  background-color: var(--color-light-gray-3);
 }
