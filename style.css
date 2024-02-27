@@ -8,6 +8,8 @@
   --color-white: #fff;
 
   --fw-4: 400;
+
+  --transition-timing: 0.3s;
 }
 * {
   margin: 0;
@@ -24,6 +26,79 @@ body {
   font-size: 1.6rem;
 }
 
+#app {
+  height: 100vh;
+  display: flex;
+  gap: 1rem;
+}
+
+.notes__sidebar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: var(--color-light-gray-3);
+  padding: 3rem 1.5rem;
+}
+
 .notes__heading {
   font-family: "Aclonica", sans-serif;
+  font-size: 1.5rem;
+  color: var(--color-accent);
+}
+
+.notes__search-label {
+  position: relative;
+}
+
+.notes__search-icon {
+  width: 20px;
+  margin-inline-start: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--color-light-gray-1);
+  cursor: auto;
+}
+
+.notes__search-input {
+  width: 100%;
+  padding: 5px 20px 5px 28px;
+  border: none;
+  border-radius: 6px;
+}
+
+.notes__search-input::placeholder {
+  color: var(--color-light-gray-1);
+}
+
+.notes__labels {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+#notes__notes-label,
+#notes__add-notes-label {
+  appearance: none;
+}
+
+.notes__side-label {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 3px 15px;
+  color: var(--color-light-gray-1);
+  cursor: pointer;
+}
+
+.notes__side-label:hover {
+  color: var(--color-medium-gray-1);
+}
+
+#notes__notes-label:checked + label,
+#notes__add-notes-label:checked + label {
+  font-weight: 600;
+  color: var(--color-medium-gray-1);
+  border-inline-start: 3px solid red;
 }
