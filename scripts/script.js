@@ -3,7 +3,7 @@ const searchElement = document.querySelector(".notes__searchField-wrapper");
 const searchInputLabel = document.querySelector(".notes__header-searchLabel");
 const headerMenuInput = document.getElementById("header-menu-input");
 const sidebar = document.querySelector(".notes__sidebar");
-const notesLabelSidebar = document.querySelector(".notes__side-label");
+const notesLabelSidebar = document.querySelector(".notes__notes-button");
 const notesForm = document.querySelector(".notes__form");
 const notesView = document.querySelector(".notes__view");
 const notesList = document.querySelector(".notes__list");
@@ -55,3 +55,6 @@ const viewNotes = () => {
 }
 
 notesLabelSidebar.addEventListener("click", viewNotes);
+
+const viewNoteForm = () => {
+}
