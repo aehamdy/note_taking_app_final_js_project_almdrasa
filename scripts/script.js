@@ -7,6 +7,7 @@ const notesLabelSidebar = document.querySelector(".notes__notes-button");
 const notesForm = document.querySelector(".notes__form");
 const notesView = document.querySelector(".notes__view");
 const notesList = document.querySelector(".notes__list");
+const addNoteLabelSidebar = document.querySelector(".notes__addNote-button");
 
 const toggleHeaderSearch = () => {
 
@@ -58,3 +59,9 @@ notesLabelSidebar.addEventListener("click", viewNotes);
 
 const viewNoteForm = () => {
 }
+
+addNoteLabelSidebar.addEventListener("click", () => {
+    notesList.style.display = "none";
+    notesView.style.display = "none";
+    notesForm.style.display = "flex";
+})
