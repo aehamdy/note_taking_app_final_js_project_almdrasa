@@ -157,6 +157,13 @@ ul {
   align-items: center;
   height: 100vh;
   flex-grow: 1;
+  padding-bottom: 30px;
+}
+
+@media (max-width: 480px) {
+  .notes__container {
+    justify-content: space-between;
+  }
 }
 
 .notes__wrapper {
@@ -174,8 +181,6 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
-    top: 0;
     width: 100%;
     padding: 8px 16px;
     background-color: var(--color-light-gray-3);
@@ -412,6 +417,7 @@ ul {
       border-bottom: 1px solid transparent;
       border-radius: var(--border-rad-6);
       outline: none;
+      caret-color: var(--color-accent);
       transition: var(--transition-timing);
     }
 
