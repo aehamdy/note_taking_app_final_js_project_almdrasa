@@ -1,6 +1,8 @@
 const headerSearchInput = document.querySelector(".notes__search-icon-label");
 const searchElement = document.querySelector(".notes__searchField-wrapper");
 const searchInputLabel = document.querySelector(".notes__header-searchLabel");
+const headerMenuInput = document.getElementById("header-menu-input");
+const sidebar = document.querySelector(".notes__sidebar");
 
 const toggleHeaderSearch = () => {
 
@@ -19,3 +21,24 @@ const toggleHeaderSearch = () => {
 }
 
 headerSearchInput.addEventListener("click", toggleHeaderSearch);
+
+
+
+const toggleSidebar = (e) => {
+    if (window.matchMedia("(max-width: 480px)")) {
+
+        const ul = document.querySelector(".notes__sidebar-list");
+    
+        if (e.target.checked) {
+            sidebar.style.width = "35%";
+            ul.style.display = "flex";
+            sidebar.style.padding = "var(--gutter-30) var(--gutter-15)";
+        } else {
+            sidebar.style.width = "0";
+            ul.style.display = "none";
+            sidebar.style.padding = "0";
+        }
+    }
+}
+
+headerMenuInput.addEventListener("change", (e) => toggleSidebar(e))
