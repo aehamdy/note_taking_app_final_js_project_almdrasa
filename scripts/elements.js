@@ -1,0 +1,10 @@
+export const headerSearchInput = document.querySelector(".notes__search-icon-label");
+export const searchElement = document.querySelector(".notes__searchField-wrapper");
+export const searchInputLabel = document.querySelector(".notes__header-searchLabel");
+export const headerMenuInput = document.getElementById("header-menu-input");
+export const sidebar = document.querySelector(".notes__sidebar");
+export const notesLabelSidebar = document.querySelector(".notes__notes-button");
+export const notesForm = document.querySelector(".notes__form");
+export const notesView = document.querySelector(".notes__view");
+export const notesList = document.querySelector(".notes__list");
+export const addNoteLabelSidebar = document.querySelector(".notes__addNote-button");
