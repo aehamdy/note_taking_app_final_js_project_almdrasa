@@ -9,6 +9,10 @@ const notesView = document.querySelector(".notes__view");
 const notesList = document.querySelector(".notes__list");
 const addNoteLabelSidebar = document.querySelector(".notes__addNote-button");
 
+window.addEventListener("DOMContentLoaded", () => {
+    notesLabelSidebar.click();
+})
+
 const toggleHeaderSearch = () => {
 
     let element = parseInt(window.getComputedStyle(searchElement).height);
