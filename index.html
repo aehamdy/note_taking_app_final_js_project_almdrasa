@@ -9,160 +9,429 @@
       href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <title>Note Taking App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <title>New Version</title>
   </head>
   <body>
     <section class="notes" id="app">
-      <div class="notes__sidebar">
-        <h1 class="notes__heading">Note Taking App</h1>
-        <label class="notes__search-label"
-          ><svg
-            class="notes__search-icon"
+      <aside class="notes__sidebar">
+        <h1 class="notes__sidebar-heading">Almdrasa - Notes</h1>
+        <label class="notes__sidebar-searchField" for="sidebar-searchField">
+          <svg
+            class="notes__searchField-icon"
             xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="100"
-            height="100"
-            viewBox="0,0,256,256"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            id="search"
           >
-            <g
-              fill-rule="nonzero"
-              stroke="none"
-              stroke-width="1"
-              stroke-linecap="butt"
-              stroke-linejoin="miter"
-              stroke-miterlimit="10"
-              stroke-dasharray=""
-              stroke-dashoffset="0"
-              font-family="none"
-              font-weight="none"
-              font-size="none"
-              text-anchor="none"
-              style="mix-blend-mode: normal"
+            <path
+              style="
+                line-height: normal;
+                font-variant-ligatures: normal;
+                font-variant-position: normal;
+                font-variant-caps: normal;
+                font-variant-numeric: normal;
+                font-variant-alternates: normal;
+                font-variant-east-asian: normal;
+                font-feature-settings: normal;
+                font-variation-settings: normal;
+                text-indent: 0;
+                text-align: start;
+                text-decoration-line: none;
+                text-decoration-style: solid;
+                text-decoration-color: #000;
+                text-transform: none;
+                text-orientation: mixed;
+                white-space: normal;
+                shape-padding: 0;
+                shape-margin: 0;
+                inline-size: 0;
+                isolation: auto;
+                mix-blend-mode: normal;
+                solid-color: #000;
+                solid-opacity: 1;
+              "
+              d="m 17.60618,295.04472 c -3.10207,-3.10204 -8.1620102,-3.10337 -11.2640702,-10e-4 -3.10206,3.10204 -3.09945,8.16073 0.003,11.26278 1.31541,1.31541 2.98305,2.067 4.7034102,2.26683 l 10e-4,6.07723 c 5.2e-4,0.51831 0.42004,0.93891 0.93835,0.93835 0.51756,-5.2e-4 0.93783,-0.42079 0.93835,-0.93834 l -0.001,-6.07983 c 1.7122,-0.20389 3.37053,-0.95467 4.68007,-2.2642 3.10205,-3.10205 3.10333,-8.15943 0.001,-11.26149 z m -1.32716,1.32717 c 2.38482,2.3848 2.38353,6.22236 -10e-4,8.60714 -2.38479,2.38479 -6.22102,2.38478 -8.6058502,-3e-5 -2.38481,-2.3848 -2.38742,-6.22366 -0.003,-8.60844 2.3848002,-2.38477 6.2249202,-2.38347 8.6097302,10e-4 z"
+              color="#000"
+              enable-background="accumulate"
+              font-family="sans-serif"
+              font-weight="400"
+              overflow="visible"
+              transform="matrix(.75348 -.75349 .75348 .75349 -225.102 -207.05)"
+            ></path>
+          </svg>
+          <input
+            type="search"
+            class="notes__side-searchField"
+            id="sidebar-searchField"
+            name="side-searchInput"
+            placeholder="Search"
+          />
+        </label>
+        <ul class="notes__sidebar-list">
+          <li>
+            <input
+              type="radio"
+              class="notes__notes-label"
+              name="sidebar-labels"
+              id="notes__notes-label"
+              value="Notes"
+            />
+            <label class="notes__side-label" for="notes__notes-label"
+              >Notes</label
             >
-              <g transform="scale(5.12,5.12)">
+          </li>
+          <li>
+            <input
+              type="radio"
+              class="notes__add-note-label"
+              name="sidebar-labels"
+              id="notes__add-note-label"
+              value="Add Note"
+            />
+            <label class="notes__side-label" for="notes__add-note-label"
+              >Add Note</label
+            >
+          </li>
+        </ul>
+      </aside>
+      <section class="notes__container">
+        <div class="notes__header">
+          <div class="notes__header-wrapper">
+            <div class="notes__header-menu-wrapper">
+              <input type="checkbox" name="main-input" id="header-menu-icon" />
+              <label class="notes__menu-icon-label" for="header-menu-icon">
+                <svg
+                  class="notes__header-menu-icon"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                    d="M5 7h14M5 12h14M5 17h10"
+                  />
+                </svg>
+                <svg
+                  class="notes__header-menu-close"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  id="close"
+                >
+                  <path
+                    d="M5.3 18.7c.2.2.4.3.7.3s.5-.1.7-.3l5.3-5.3 5.3 5.3c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L13.4 12l5.3-5.3c.4-.4.4-1 0-1.4s-1-.4-1.4 0L12 10.6 6.7 5.3c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l5.3 5.3-5.3 5.3c-.4.4-.4 1 0 1.4z"
+                  ></path>
+                </svg>
+              </label>
+            </div>
+            <h1 class="notes__header-heading">Almdrasa - Notes</h1>
+            <div class="notes__header-search-wrapper">
+              <input
+                type="checkbox"
+                name="main-input"
+                id="header-search-icon"
+              />
+              <label class="notes__search-icon-label" for="header-search-icon">
+                <svg
+                  class="notes__header-search-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  id="search"
+                >
+                  <path
+                    style="
+                      line-height: normal;
+                      font-variant-ligatures: normal;
+                      font-variant-position: normal;
+                      font-variant-caps: normal;
+                      font-variant-numeric: normal;
+                      font-variant-alternates: normal;
+                      font-variant-east-asian: normal;
+                      font-feature-settings: normal;
+                      font-variation-settings: normal;
+                      text-indent: 0;
+                      text-align: start;
+                      text-decoration-line: none;
+                      text-decoration-style: solid;
+                      text-decoration-color: #000;
+                      text-transform: none;
+                      text-orientation: mixed;
+                      white-space: normal;
+                      shape-padding: 0;
+                      shape-margin: 0;
+                      inline-size: 0;
+                      isolation: auto;
+                      mix-blend-mode: normal;
+                      solid-color: #000;
+                      solid-opacity: 1;
+                    "
+                    d="m 17.60618,295.04472 c -3.10207,-3.10204 -8.1620102,-3.10337 -11.2640702,-10e-4 -3.10206,3.10204 -3.09945,8.16073 0.003,11.26278 1.31541,1.31541 2.98305,2.067 4.7034102,2.26683 l 10e-4,6.07723 c 5.2e-4,0.51831 0.42004,0.93891 0.93835,0.93835 0.51756,-5.2e-4 0.93783,-0.42079 0.93835,-0.93834 l -0.001,-6.07983 c 1.7122,-0.20389 3.37053,-0.95467 4.68007,-2.2642 3.10205,-3.10205 3.10333,-8.15943 0.001,-11.26149 z m -1.32716,1.32717 c 2.38482,2.3848 2.38353,6.22236 -10e-4,8.60714 -2.38479,2.38479 -6.22102,2.38478 -8.6058502,-3e-5 -2.38481,-2.3848 -2.38742,-6.22366 -0.003,-8.60844 2.3848002,-2.38477 6.2249202,-2.38347 8.6097302,10e-4 z"
+                    color="#000"
+                    enable-background="accumulate"
+                    font-family="sans-serif"
+                    font-weight="400"
+                    overflow="visible"
+                    transform="matrix(.75348 -.75349 .75348 .75349 -225.102 -207.05)"
+                  ></path>
+                </svg>
+                <svg
+                  class="notes__header-search-close"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  id="close"
+                >
+                  <path
+                    d="M5.3 18.7c.2.2.4.3.7.3s.5-.1.7-.3l5.3-5.3 5.3 5.3c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L13.4 12l5.3-5.3c.4-.4.4-1 0-1.4s-1-.4-1.4 0L12 10.6 6.7 5.3c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l5.3 5.3-5.3 5.3c-.4.4-.4 1 0 1.4z"
+                  ></path>
+                </svg>
+              </label>
+            </div>
+          </div>
+          <div class="notes__searchField-wrapper">
+            <label class="notes__header-searchLabel" for="header-searchField">
+              <svg
+                class="notes__header-searchField-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                id="search"
+              >
                 <path
-                  d="M21,3c-9.37891,0 -17,7.62109 -17,17c0,9.37891 7.62109,17 17,17c3.71094,0 7.14063,-1.19531 9.9375,-3.21875l13.15625,13.125l2.8125,-2.8125l-13,-13.03125c2.55469,-2.97656 4.09375,-6.83984 4.09375,-11.0625c0,-9.37891 -7.62109,-17 -17,-17zM21,5c8.29688,0 15,6.70313 15,15c0,8.29688 -6.70312,15 -15,15c-8.29687,0 -15,-6.70312 -15,-15c0,-8.29687 6.70313,-15 15,-15z"
+                  style="
+                    line-height: normal;
+                    font-variant-ligatures: normal;
+                    font-variant-position: normal;
+                    font-variant-caps: normal;
+                    font-variant-numeric: normal;
+                    font-variant-alternates: normal;
+                    font-variant-east-asian: normal;
+                    font-feature-settings: normal;
+                    font-variation-settings: normal;
+                    text-indent: 0;
+                    text-align: start;
+                    text-decoration-line: none;
+                    text-decoration-style: solid;
+                    text-decoration-color: #000;
+                    text-transform: none;
+                    text-orientation: mixed;
+                    white-space: normal;
+                    shape-padding: 0;
+                    shape-margin: 0;
+                    inline-size: 0;
+                    isolation: auto;
+                    mix-blend-mode: normal;
+                    solid-color: #000;
+                    solid-opacity: 1;
+                  "
+                  d="m 17.60618,295.04472 c -3.10207,-3.10204 -8.1620102,-3.10337 -11.2640702,-10e-4 -3.10206,3.10204 -3.09945,8.16073 0.003,11.26278 1.31541,1.31541 2.98305,2.067 4.7034102,2.26683 l 10e-4,6.07723 c 5.2e-4,0.51831 0.42004,0.93891 0.93835,0.93835 0.51756,-5.2e-4 0.93783,-0.42079 0.93835,-0.93834 l -0.001,-6.07983 c 1.7122,-0.20389 3.37053,-0.95467 4.68007,-2.2642 3.10205,-3.10205 3.10333,-8.15943 0.001,-11.26149 z m -1.32716,1.32717 c 2.38482,2.3848 2.38353,6.22236 -10e-4,8.60714 -2.38479,2.38479 -6.22102,2.38478 -8.6058502,-3e-5 -2.38481,-2.3848 -2.38742,-6.22366 -0.003,-8.60844 2.3848002,-2.38477 6.2249202,-2.38347 8.6097302,10e-4 z"
+                  color="#000"
+                  enable-background="accumulate"
+                  font-family="sans-serif"
+                  font-weight="400"
+                  overflow="visible"
+                  transform="matrix(.75348 -.75349 .75348 .75349 -225.102 -207.05)"
                 ></path>
-              </g>
-            </g></svg
-          ><input class="notes__search-input" type="text" placeholder="Search"
-        /></label>
-        <div class="notes__labels">
-          <input
-            type="radio"
-            name="pick-label"
-            id="notes__notes-label"
-            value="Notes"
-          />
-          <label class="notes__side-label" for="notes__notes-label"
-            >Notes</label
-          >
-          <input
-            type="radio"
-            name="pick-label"
-            id="notes__add-notes-label"
-            value="Add Note"
-          />
-          <label class="notes__side-label" for="notes__add-notes-label"
-            >Add Note</label
-          >
-        </div>
-      </div>
-      <div class="notes__list">
-        <span class="notes__pinned-flag">Pinned</span>
-        <div class="notes__pinned-list">
-          <div class="notes__note-item">
-            <h5 class="notes__note-title">Note title: Light Bright Brooklyn</h5>
-            <div class="notes__note-body">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat
-              facilis obcaecati eaque! Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Placeat facilis obcaecati eaque!
-            </div>
-            <div class="notes__note-footer">
-              <div class="notes__note-updated">Feb 8, 2021</div>
-              <button class="notes__note-delete">Delete</button>
-            </div>
+              </svg>
+              <input
+                type="search"
+                class="notes__header-searchField"
+                id="header-searchField"
+                name="side-searchInput"
+                placeholder="Search"
+              />
+            </label>
           </div>
         </div>
-        <span class="notes__notes-flag">Notes</span>
-        <div class="notes__notes-list">
-          <div class="notes__note-item">
-            <h5 class="notes__note-title">Note title: Light Bright Brooklyn</h5>
-            <div class="notes__note-body">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat
-              facilis obcaecati eaque! Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Placeat facilis obcaecati eaque!
-            </div>
-            <div class="notes__note-footer">
-              <div class="notes__note-updated">Feb 8, 2021</div>
-              <button class="notes__note-delete">Delete</button>
-            </div>
+        <div class="notes__wrapper">
+          <div class="notes__view">
+            <ul class="notes__list">
+              <div class="notes__arrow-wrapper">
+                <svg
+                  class="notes__list-arrow"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 64 64"
+                  id="arrow"
+                >
+                  <path
+                    d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="notes__flag notes__pinned-flag">Pinned</span>
+              <ul class="notes__pinned-list">
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">Light Bright Brooklyn</h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+              </ul>
+              <span class="notes__flag notes__notes-flag">Notes</span>
+              <ul class="notes__notes-list">
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">
+                    Business Partners Work at Modern Office
+                  </h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">Light & Bright in Brooklyn</h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">
+                    Business Partners Work at Modern Office
+                  </h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">Light & Bright in Brooklyn</h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">
+                    Business Partners Work at Modern Office
+                  </h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">Light & Bright in Brooklyn</h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">
+                    Business Partners Work at Modern Office
+                  </h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">Light & Bright in Brooklyn</h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">
+                    Business Partners Work at Modern Office
+                  </h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+                <li class="notes__note-item">
+                  <h5 class="notes__note-title">Light & Bright in Brooklyn</h5>
+                  <div class="notes__note-content">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dignissimos vero eos ratione distinctio laboriosam
+                    iusto blanditiis. Minus, ex fugiat.
+                  </div>
+                  <div class="notes__note-actions">
+                    <div class="notes__note-updated">Feb 8, 2024</div>
+                    <button class="notes__note-delete">Delete</button>
+                  </div>
+                </li>
+              </ul>
+            </ul>
+            <div class="notes__preview"></div>
           </div>
-          <div class="notes__note-item">
-            <h5 class="notes__note-title">Note title: Light Bright Brooklyn</h5>
-            <div class="notes__note-body">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat
-              facilis obcaecati eaque!
+          <div class="notes__form">
+            <h3 class="notes__form-heading">Add Note</h3>
+            <div class="notes__form-fields">
+              <label for="">Title*</label>
+              <input type="text" />
+              <label for="">Author*</label>
+              <input type="text" />
+              <label for="">Your Note*</label>
+              <textarea></textarea>
             </div>
-            <div class="notes__note-footer">
-              <div class="notes__note-updated">Feb 8, 2021</div>
-              <button class="notes__note-delete">Delete</button>
-            </div>
-          </div>
-          <div class="notes__note-item">
-            <h5 class="notes__note-title">Note title: Light Bright Brooklyn</h5>
-            <div class="notes__note-body">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat
-              facilis obcaecati eaque!
-            </div>
-            <div class="notes__note-footer">
-              <div class="notes__note-updated">Feb 8, 2021</div>
-              <button class="notes__note-delete">Delete</button>
-            </div>
-          </div>
-          <div class="notes__note-item">
-            <h5 class="notes__note-title">Note title: Light Bright Brooklyn</h5>
-            <div class="notes__note-body">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat
-              facilis obcaecati eaque!
-            </div>
-            <div class="notes__note-footer">
-              <div class="notes__note-updated">Feb 8, 2021</div>
-              <button class="notes__note-delete">Delete</button>
-            </div>
-          </div>
-          <div class="notes__note-item">
-            <h5 class="notes__note-title">Note title: Light Bright Brooklyn</h5>
-            <div class="notes__note-body">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat
-              facilis obcaecati eaque!
-            </div>
-            <div class="notes__note-footer">
-              <div class="notes__note-updated">Feb 8, 2021</div>
-              <button class="notes__note-delete">Delete</button>
+            <div class="notes__form-buttons">
+              <button>Add Note</button>
+              <button>Add Pinned Note</button>
             </div>
           </div>
         </div>
-      </div>
-      <div class="notes__preview">
-        <div class="notes__add-note">
-          <h3 class="notes__add-note-heading">Add Note</h3>
-          <div class="notes__note-fields">
-            <label for="">Title*</label>
-            <input type="text" />
-            <label for="">Author*</label>
-            <input type="text" />
-            <label for="">Your Note*</label>
-            <textarea></textarea>
-          </div>
-          <div class="notes__note-adding-buttons">
-            <button class="notes__adding-button">Add Note</button>
-            <button class="notes__adding-button">Add Pinned Note</button>
-          </div>
-        </div>
-      </div>
+      </section>
     </section>
   </body>
 </html>
