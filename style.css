@@ -160,7 +160,7 @@ ul {
   align-items: center;
   height: 100vh;
   flex-grow: 1;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 @media (max-width: 480px) {
@@ -170,7 +170,7 @@ ul {
 }
 
 .notes__wrapper {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -398,7 +398,7 @@ ul {
 }
 
 .notes__form {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 50%;
 
@@ -475,4 +475,8 @@ ul {
     flex-direction: column;
     gap: 15px;
   }
+}
+
+.hide {
+  display: none;
 }

@@ -3,6 +3,10 @@ const searchElement = document.querySelector(".notes__searchField-wrapper");
 const searchInputLabel = document.querySelector(".notes__header-searchLabel");
 const headerMenuInput = document.getElementById("header-menu-input");
 const sidebar = document.querySelector(".notes__sidebar");
+const notesLabelSidebar = document.querySelector(".notes__side-label");
+const notesForm = document.querySelector(".notes__form");
+const notesView = document.querySelector(".notes__view");
+const notesList = document.querySelector(".notes__list");
 
 const toggleHeaderSearch = () => {
 
@@ -42,3 +46,12 @@ const toggleSidebar = (e) => {
 }
 
 headerMenuInput.addEventListener("change", (e) => toggleSidebar(e))
+
+const viewNotes = () => {
+
+    notesForm.style.display = "none";
+    notesView.style.display = "flex";
+    notesList.style.display = "block";
+}
+
+notesLabelSidebar.addEventListener("click", viewNotes);
