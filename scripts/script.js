@@ -23,7 +23,7 @@ const toggleHeaderSearch = () => {
         searchElement.style.height = "45px";
         searchInputLabel.style.display = "flex";
     }
-}
+};
 
 headerSearchInput.addEventListener("click", toggleHeaderSearch);
 
@@ -44,7 +44,7 @@ const toggleSidebar = (e) => {
             sidebar.style.padding = "0";
         }
     }
-}
+};
 
 headerMenuInput.addEventListener("change", (e) => toggleSidebar(e))
 
@@ -53,15 +53,14 @@ const viewNotes = () => {
     notesForm.style.display = "none";
     notesView.style.display = "flex";
     notesList.style.display = "block";
-}
+};
 
 notesLabelSidebar.addEventListener("click", viewNotes);
 
 const viewNoteForm = () => {
-}
-
-addNoteLabelSidebar.addEventListener("click", () => {
     notesList.style.display = "none";
     notesView.style.display = "none";
     notesForm.style.display = "flex";
-})
+};
+
+addNoteLabelSidebar.addEventListener("click", viewNoteForm);
