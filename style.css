@@ -52,7 +52,6 @@ ul {
   flex-direction: column;
   gap: 50px;
   padding: var(--gutter-30) var(--gutter-15);
-  /* padding: 0; */
   width: 15%;
   height: 100vh;
   background-color: var(--color-light-gray-3);
@@ -165,7 +164,7 @@ ul {
 
 @media (max-width: 480px) {
   .notes__container {
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 
@@ -181,12 +180,15 @@ ul {
 
 @media (max-width: 480px) {
   .notes__header {
+    position: absolute;
+    top: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     padding: 8px 16px;
     background-color: var(--color-light-gray-3);
+    z-index: 1;
   }
 
   .notes__header-wrapper {
@@ -293,6 +295,13 @@ ul {
   border-inline-end: 1px solid var(--color-light-gray-2);
   overflow-y: scroll;
   scrollbar-width: none;
+}
+
+@media (max-width: 480px) {
+  .notes__list {
+    width: 100%;
+    padding: 55px 0 30px;
+  }
 }
 
 .notes__arrow-wrapper {
