@@ -52,9 +52,7 @@ const getDate = () => {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const month = months[date.getMonth()];
     const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const todayDate = `${month} ${day}, ${year}, ${hours}:${minutes}`;
+    const todayDate = `${month} ${day}, ${year}`;
 
     return todayDate
 };
@@ -72,6 +70,8 @@ const addNote = () => {
     const noteTitle = titleField.value;
     const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
     const noteBody = noteField.value;
+
+    if (!noteTitle || !noteAuthor || !noteBody) return;
 
     const note = {
         title: noteTitle,
