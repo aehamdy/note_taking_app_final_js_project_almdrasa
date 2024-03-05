@@ -1,4 +1,4 @@
-import { addNoteBtn, addNoteLabelSidebar, headerMenuInput, headerSearchInput, notesLabelSidebar } from "./elements.js";
+import { addNoteBtn, addNoteLabelSidebar, addPinnedBtn, headerMenuInput, headerSearchInput, normalNotesList, notesLabelSidebar, pinnedNotesList } from "./elements.js";
 import { addNote, toggleHeaderSearch, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
 
 
@@ -12,5 +12,13 @@ export const initListeners = () => {
 
     addNoteLabelSidebar.addEventListener("click", viewNoteForm);
 
-    addNoteBtn.addEventListener("click", addNote);
+    addNoteBtn.addEventListener("click", () => {
+        const notesList = addNote("notes");
+        normalNotesList.innerHTML = notesList;
+    });
+
+    addPinnedBtn.addEventListener("click", () => {
+        const notesList = addNote("pinnedNotes");
+        pinnedNotesList.innerHTML = notesList;
+    });
 }

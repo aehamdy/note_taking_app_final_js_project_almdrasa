@@ -66,7 +66,7 @@ const getFromStorage = (key) => {
     return data ? JSON.parse(data) : false;
 };
 
-export const addNote = () => {
+export const addNote = (notesType) => {
     const noteTitle = titleField.value;
     const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
     const noteBody = noteField.value;
@@ -80,11 +80,11 @@ export const addNote = () => {
         date: getDate(),
     };
 
-    const notes = getFromStorage("notes") || [];
+    const notes = getFromStorage(notesType) || [];
 
     notes.unshift(note);
 
-    saveToStorage("notes", notes);
+    saveToStorage(notesType, notes);
 
     let notesList = "";
     notes.forEach(note => {
@@ -98,41 +98,5 @@ export const addNote = () => {
         </li>`;
     });
 
-    normalNotesList.innerHTML = notesList;
+    return notesList;
 };
-
-addPinnedBtn.addEventListener("click", () => {
-    const noteTitle = titleField.value;
-    const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
-    const noteBody = noteField.value;
-
-    if (!noteTitle || !noteAuthor || !noteBody) return;
-
-    const note = {
-        title: noteTitle,
-        author: noteAuthor,
-        content: noteBody,
-        date: getDate(),
-    };
-
-    const notes = getFromStorage("pinnedNotes") || [];
-
-    notes.unshift(note);
-
-    saveToStorage("pinnedNotes", notes);
-
-    let notesList = "";
-
-    notes.forEach(note => {
-        notesList += `<li class="notes__note-item">
-        <h5 class="notes__note-title">${note.title}</h5>
-        <div class="notes__note-content">${note.content}</div>
-        <div class="notes__note-actions">
-        <div class="notes__note-updated">${note.date}</div>
-        <button class="notes__note-delete">Delete</button>
-        </div>
-        </li>`;
-    });
-
-    pinnedNotesList.innerHTML = notesList;
-});
