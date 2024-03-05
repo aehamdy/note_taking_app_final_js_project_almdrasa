@@ -1,4 +1,4 @@
-import { addNoteBtn, authorField, normalNotesList, noteField, notesForm, notesList, notesView, searchElement, searchInputLabel, sidebar, titleField } from "./elements.js";
+import { addNoteBtn, addPinnedBtn, authorField, normalNotesList, noteField, notesForm, notesList, notesView, pinnedNotesList, searchElement, searchInputLabel, sidebar, titleField } from "./elements.js";
 
 export const toggleHeaderSearch = () => {
 
@@ -76,7 +76,7 @@ export const addNote = () => {
     const note = {
         title: noteTitle,
         author: noteAuthor,
-        noteContent: noteBody,
+        content: noteBody,
         date: getDate(),
     };
 
@@ -90,7 +90,7 @@ export const addNote = () => {
     notes.forEach(note => {
         notesList += `<li class="notes__note-item">
         <h5 class="notes__note-title">${note.title}</h5>
-        <div class="notes__note-content">${note.noteContent}</div>
+        <div class="notes__note-content">${note.content}</div>
         <div class="notes__note-actions">
         <div class="notes__note-updated">${note.date}</div>
         <button class="notes__note-delete">Delete</button>
@@ -100,3 +100,39 @@ export const addNote = () => {
 
     normalNotesList.innerHTML = notesList;
 };
+
+addPinnedBtn.addEventListener("click", () => {
+    const noteTitle = titleField.value;
+    const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
+    const noteBody = noteField.value;
+
+    if (!noteTitle || !noteAuthor || !noteBody) return;
+
+    const note = {
+        title: noteTitle,
+        author: noteAuthor,
+        content: noteBody,
+        date: getDate(),
+    };
+
+    const notes = getFromStorage("pinnedNotes") || [];
+
+    notes.unshift(note);
+
+    saveToStorage("pinnedNotes", notes);
+
+    let notesList = "";
+
+    notes.forEach(note => {
+        notesList += `<li class="notes__note-item">
+        <h5 class="notes__note-title">${note.title}</h5>
+        <div class="notes__note-content">${note.content}</div>
+        <div class="notes__note-actions">
+        <div class="notes__note-updated">${note.date}</div>
+        <button class="notes__note-delete">Delete</button>
+        </div>
+        </li>`;
+    });
+
+    pinnedNotesList.innerHTML = notesList;
+});
