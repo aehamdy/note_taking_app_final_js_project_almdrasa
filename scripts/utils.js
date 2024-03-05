@@ -66,7 +66,7 @@ const getFromStorage = (key) => {
     return data ? JSON.parse(data) : false;
 };
 
-const addNote = () => {
+export const addNote = () => {
     const noteTitle = titleField.value;
     const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
     const noteBody = noteField.value;
@@ -100,5 +100,3 @@ const addNote = () => {
 
     normalNotesList.innerHTML = notesList;
 };
-
-addNoteBtn.addEventListener("click", addNote);
