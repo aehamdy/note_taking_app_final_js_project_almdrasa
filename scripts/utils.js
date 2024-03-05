@@ -71,6 +71,20 @@ const addNote = () => {
     notes.unshift(note);
 
     saveToStorage("notes", notes);
+
+    let notesList = "";
+    notes.forEach(note => {
+        notesList += `<li class="notes__note-item">
+        <h5 class="notes__note-title">${note.title}</h5>
+        <div class="notes__note-content">${note.noteContent}</div>
+        <div class="notes__note-actions">
+        <div class="notes__note-updated">${note.date}</div>
+        <button class="notes__note-delete">Delete</button>
+        </div>
+        </li>`;
+    });
+
+    normalNotesList.innerHTML = notesList;
 };
 
 addNoteBtn.addEventListener("click", addNote);
