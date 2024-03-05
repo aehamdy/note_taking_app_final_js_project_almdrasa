@@ -46,6 +46,19 @@ export const viewNoteForm = () => {
     notesForm.style.display = "flex";
 };
 
+const getDate = () => {
+    const date = new Date();
+    const day = date.getDate();
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const todayDate = `${month} ${day}, ${year}, ${hours}:${minutes}`;
+
+    return todayDate
+};
+
 const saveToStorage = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
 };
@@ -64,6 +77,7 @@ const addNote = () => {
         title: noteTitle,
         author: noteAuthor,
         noteContent: noteBody,
+        date: getDate(),
     };
 
     const notes = getFromStorage("notes") || [];
