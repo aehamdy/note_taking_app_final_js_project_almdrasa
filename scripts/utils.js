@@ -66,10 +66,6 @@ const getFromStorage = (key) => {
     return data ? JSON.parse(data) : false;
 };
 
-const renderNotesList = () => {
-
-}
-
 export const addNote = (notesType) => {
     const noteTitle = titleField.value;
     const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
@@ -113,11 +109,16 @@ const renderNotes = (notes) => {
     return notesList;
 };
 
-
+export const getNotesOnLoad = () => {
+    const normalNotes = renderNotes(getFromStorage("notes"));
+    normalNotesList.innerHTML = normalNotes
+    const pinnedNotes = renderNotes(getFromStorage("pinnedNotes"));
+    pinnedNotesList.innerHTML = pinnedNotes;
+};
 
 
 /*
-    [ ] Get notes from local storage on loading the page
+    [x] Get notes from local storage on loading the page
     [ ] Show the full note on click on it
     [ ] Add functionality to delete button
     [ ] Add shake animation too empty fields when adding a new note
