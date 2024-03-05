@@ -14,7 +14,6 @@ import { initListeners } from "./scripts/eventListeners.js";
 
 window.addEventListener("DOMContentLoaded", () => {
     notesLabelSidebar.click();
-    console.log("Helloooo");
 });
 
 initListeners();

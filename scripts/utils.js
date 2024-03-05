@@ -1,4 +1,4 @@
-import { notesForm, notesList, notesView, searchElement, searchInputLabel, sidebar } from "./elements.js";
+import { addNoteBtn, authorField, normalNotesList, noteField, notesForm, notesList, notesView, searchElement, searchInputLabel, sidebar, titleField } from "./elements.js";
 
 export const toggleHeaderSearch = () => {
 
@@ -45,3 +45,8 @@ export const viewNoteForm = () => {
     notesView.style.display = "none";
     notesForm.style.display = "flex";
 };
+
+const saveToStorage = (key, data) => {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+
