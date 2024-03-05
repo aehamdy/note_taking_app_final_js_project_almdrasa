@@ -48,9 +48,29 @@ export const viewNoteForm = () => {
 
 const saveToStorage = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
-}
+};
 
 const getFromStorage = (key) => {
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : false;
-}
+};
+
+const addNote = () => {
+    const noteTitle = titleField.value;
+    const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
+    const noteBody = noteField.value;
+
+    const note = {
+        title: noteTitle,
+        author: noteAuthor,
+        noteContent: noteBody,
+    };
+
+    const notes = getFromStorage("notes") || [];
+
+    notes.unshift(note);
+
+    saveToStorage("notes", notes);
+};
+
+addNoteBtn.addEventListener("click", addNote);
