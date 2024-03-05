@@ -1,4 +1,4 @@
-import { addNoteBtn, addPinnedBtn, authorField, normalNotesList, noteField, notesForm, notesList, notesView, pinnedNotesList, searchElement, searchInputLabel, sidebar, titleField } from "./elements.js";
+import {authorField, normalNotesList, noteField, notesForm, notesList, notesView, pinnedNotesList, searchElement, searchInputLabel, sidebar, titleField } from "./elements.js";
 
 export const toggleHeaderSearch = () => {
 
@@ -66,6 +66,10 @@ const getFromStorage = (key) => {
     return data ? JSON.parse(data) : false;
 };
 
+const renderNotesList = () => {
+
+}
+
 export const addNote = (notesType) => {
     const noteTitle = titleField.value;
     const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
@@ -86,7 +90,15 @@ export const addNote = (notesType) => {
 
     saveToStorage(notesType, notes);
 
+    const notesList = renderNotes(notes);
+
+    return notesList;
+};
+
+const renderNotes = (notes) => {
+
     let notesList = "";
+
     notes.forEach(note => {
         notesList += `<li class="notes__note-item">
         <h5 class="notes__note-title">${note.title}</h5>
@@ -100,3 +112,14 @@ export const addNote = (notesType) => {
 
     return notesList;
 };
+
+
+
+
+/*
+    [ ] Get notes from local storage on loading the page
+    [ ] Show the full note on click on it
+    [ ] Add functionality to delete button
+    [ ] Add shake animation too empty fields when adding a new note
+    [ ] Add pin/note icons to pinned & notes flags
+*/

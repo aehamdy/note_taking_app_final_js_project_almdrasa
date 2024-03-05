@@ -9,6 +9,7 @@ notesForm,
 notesView,
 notesList,
 addNoteLabelSidebar,
+pinnedNotesList,
 } from "./scripts/elements.js";
 import { initListeners } from "./scripts/eventListeners.js";
 
