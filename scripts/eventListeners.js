@@ -6,7 +6,7 @@ import { addNoteBtn,
     normalNotesList, 
     notesLabelSidebar, 
     pinnedNotesList } from "./elements.js";
-import { addNote, toggleHeaderSearch, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
+import { addNote, getAllNotes, toggleHeaderSearch, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
 
 
 export const initListeners = () => {
@@ -22,11 +22,13 @@ export const initListeners = () => {
     addNoteBtn.addEventListener("click", () => {
         const notesList = addNote("notes");
         normalNotesList.innerHTML = notesList;
+        getAllNotes();
     });
 
     addPinnedBtn.addEventListener("click", () => {
         const notesList = addNote("pinnedNotes");
         pinnedNotesList.innerHTML = notesList;
+        getAllNotes();
     });
 
 };
