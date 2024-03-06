@@ -16,4 +16,6 @@ export const addNoteBtn = document.querySelector(".notes__addNote-btn");
 export const addPinnedBtn = document.querySelector(".notes__addPinned-btn");
 export const normalNotesList = document.querySelector(".notes__notes-list");
 export const pinnedNotesList = document.querySelector(".notes__pinned-list");
+export const arrow = document.querySelector(".notes__arrow-wrapper");
+
 export const getNotes = () => document.querySelectorAll(".notes__note-item");

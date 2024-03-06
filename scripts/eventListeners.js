@@ -1,12 +1,14 @@
 import { addNoteBtn, 
     addNoteLabelSidebar, 
     addPinnedBtn, 
+    arrow, 
     headerMenuInput, 
     headerSearchInput, 
     normalNotesList, 
     notesLabelSidebar, 
+    notesList, 
     pinnedNotesList } from "./elements.js";
-import { addNote, getAllNotes, toggleHeaderSearch, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
+import { addNote, getAllNotes, toggleHeaderSearch, toggleNotesList, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
 
 
 export const initListeners = () => {
@@ -30,5 +32,7 @@ export const initListeners = () => {
         pinnedNotesList.innerHTML = notesList;
         getAllNotes();
     });
+
+    arrow.addEventListener("click", () => toggleNotesList());
 
 };

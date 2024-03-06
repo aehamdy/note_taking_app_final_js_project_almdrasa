@@ -153,6 +153,20 @@ export const getAllNotes = () => {
     });
 };
 
+export const toggleNotesList = () => {
+    const notesList = document.querySelector(".notes__list");
+
+    notesList.classList.toggle("shrink");
+
+    if (notesList.classList.contains("shrink")) {
+        arrow.style.right = "-15px";
+        arrow.style.rotate = "540deg";
+    } else {
+        arrow.style.right = "-10px";
+        arrow.style.rotate = "0deg";
+    }
+}
+
 
 /*
     [x] Get notes from local storage on loading the page
