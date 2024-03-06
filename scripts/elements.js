@@ -19,3 +19,5 @@ export const pinnedNotesList = document.querySelector(".notes__pinned-list");
 export const arrow = document.querySelector(".notes__arrow-wrapper");
 
 export const getNotes = () => document.querySelectorAll(".notes__note-item");
+export const getPinnedDeleteBtns = () => document.querySelectorAll(".notes__pinned-list .notes__note-delete");
+export const getNormalDeleteBtns = () => document.querySelectorAll(".notes__notes-list .notes__note-delete");

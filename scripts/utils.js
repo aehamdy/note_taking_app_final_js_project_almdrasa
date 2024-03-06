@@ -167,11 +167,19 @@ export const toggleNotesList = () => {
     }
 }
 
+export const deleteNote = (e, index, noteType) => {
+
+    const data = getFromStorage(noteType);
+
+    saveToStorage(noteType, data);
+};
+
 
 /*
     [x] Get notes from local storage on loading the page
     [x] Show the full note on click on it
-    [ ] Add functionality to delete button
+    [x] Expand/Shrink notes list on clicking arrow icon
+    [x] Add functionality to delete button
     [ ] Add shake animation too empty fields when adding a new note
     [ ] Add pin/note icons to pinned & notes flags
 */
