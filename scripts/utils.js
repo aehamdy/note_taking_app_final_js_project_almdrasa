@@ -63,11 +63,13 @@ export const viewNoteForm = () => {
 
 const getDate = () => {
     const date = new Date();
+    const minutes = date.getMinutes();
+    const hours = date.getHours();
     const day = date.getDate();
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const month = months[date.getMonth()];
     const year = date.getFullYear();
-    const todayDate = `${month} ${day}, ${year}`;
+    const todayDate = `${month} ${day}, ${year} at ${hours}:${minutes}`;
 
     return todayDate
 };
