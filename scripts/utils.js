@@ -1,4 +1,16 @@
-import {authorField, normalNotesList, noteField, notesForm, notesList, notesView, pinnedNotesList, searchElement, searchInputLabel, sidebar, titleField } from "./elements.js";
+import {authorField, 
+    normalNotesList, 
+    noteField, 
+    notesForm, 
+    notesList, 
+    notesPreview, 
+    notesView, 
+    pinnedNotesList, 
+    searchElement, 
+    searchInputLabel, 
+    sidebar, 
+    titleField 
+} from "./elements.js";
 
 export const toggleHeaderSearch = () => {
 
@@ -38,12 +50,14 @@ export const viewNotes = () => {
     notesForm.style.display = "none";
     notesView.style.display = "flex";
     notesList.style.display = "block";
+    notesPreview.style.display = "flex"
 };
 
 export const viewNoteForm = () => {
     notesList.style.display = "none";
     notesView.style.display = "none";
     notesForm.style.display = "flex";
+    notesPreview.style.display = "none";
 };
 
 const getDate = () => {

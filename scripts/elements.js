@@ -7,6 +7,7 @@ export const notesLabelSidebar = document.querySelector(".notes__notes-button");
 export const notesForm = document.querySelector(".notes__form");
 export const notesView = document.querySelector(".notes__view");
 export const notesList = document.querySelector(".notes__list");
+export const notesPreview = document.querySelector(".notes__preview");
 export const addNoteLabelSidebar = document.querySelector(".notes__addNote-button");
 export const titleField = document.querySelector(".notes__title-field");
 export const authorField = document.querySelector(".notes__author-field");
