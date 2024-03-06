@@ -334,6 +334,11 @@ ul {
   gap: 15px;
 }
 
+.notes__empty {
+  color: var(--color-light-gray-1);
+  font-size: 14px;
+}
+
 .notes__note-item {
   display: flex;
   flex-direction: column;
@@ -404,6 +409,34 @@ ul {
 .notes__view,
 .notes__preview {
   display: none;
+}
+
+.notes__preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 20px;
+  max-width: 700px;
+  padding: 50px 0;
+
+  .notes__title-preview {
+    font-size: 2.4rem;
+    color: var(--color-medium-gray-1);
+  }
+
+  .notes__updated-preview {
+    color: var(--color-light-gray-1);
+    font-weight: var(--fw-4);
+    /* text-decoration: underline; */
+  }
+
+  .notes__content-preview {
+    line-height: 30px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    color: var(--color-medium-gray-1);
+  }
 }
 
 .notes__form {

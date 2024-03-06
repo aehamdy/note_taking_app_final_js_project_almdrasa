@@ -1,4 +1,5 @@
 import {authorField, 
+    getNotes, 
     normalNotesList, 
     noteField, 
     notesForm, 
@@ -108,32 +109,52 @@ export const addNote = (notesType) => {
 const renderNotes = (notes) => {
 
     let notesList = "";
+    
+    if (Array.isArray(notes)) {
+        notes.forEach(note => {
+            notesList += `<li class="notes__note-item">
+            <h5 class="notes__note-title">${note.title}</h5>
+            <div class="notes__note-content">${note.content}</div>
+            <div class="notes__note-actions">
+            <div class="notes__note-updated">${note.date}</div>
+            <button class="notes__note-delete">Delete</button>
+            </div>
+            </li>`;
+        });
+        
+        return notesList;
+    } else {
+        return `<p class="notes__empty">No notes added yet</p>`;
+    }
 
-    notes.forEach(note => {
-        notesList += `<li class="notes__note-item">
-        <h5 class="notes__note-title">${note.title}</h5>
-        <div class="notes__note-content">${note.content}</div>
-        <div class="notes__note-actions">
-        <div class="notes__note-updated">${note.date}</div>
-        <button class="notes__note-delete">Delete</button>
-        </div>
-        </li>`;
-    });
-
-    return notesList;
 };
 
 export const getNotesOnLoad = () => {
-    const normalNotes = renderNotes(getFromStorage("notes"));
+    const normalNotes = renderNotes(getFromStorage("notes")) ? renderNotes(getFromStorage("notes")) : false;
     normalNotesList.innerHTML = normalNotes
-    const pinnedNotes = renderNotes(getFromStorage("pinnedNotes"));
+    const pinnedNotes = renderNotes(getFromStorage("pinnedNotes")) ? renderNotes(getFromStorage("pinnedNotes")) : false;
     pinnedNotesList.innerHTML = pinnedNotes;
+};
+
+export const getAllNotes = () => {
+    getNotes().forEach(note => {
+        note.addEventListener("click", e => {
+            const noteTitle = e.currentTarget.querySelector(".notes__note-title").textContent;
+            const noteUpdated = e.currentTarget.querySelector(".notes__note-updated").textContent;
+            const noteContent = e.currentTarget.querySelector(".notes__note-content").textContent;
+
+            const notePreview = document.querySelector(".notes__preview");
+            notePreview.innerHTML =`<h5 class="notes__title-preview">${noteTitle}</h5>
+            <div class="notes__updated-preview">${noteUpdated}</div>
+            <div class="notes__content-preview">${noteContent}</div>`;
+        });
+    });
 };
 
 
 /*
     [x] Get notes from local storage on loading the page
-    [ ] Show the full note on click on it
+    [x] Show the full note on click on it
     [ ] Add functionality to delete button
     [ ] Add shake animation too empty fields when adding a new note
     [ ] Add pin/note icons to pinned & notes flags
