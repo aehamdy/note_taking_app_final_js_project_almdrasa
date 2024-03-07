@@ -6,8 +6,9 @@ import { addNoteBtn,
     headerSearchInput, 
     normalNotesList, 
     notesLabelSidebar, 
-    pinnedNotesList } from "./elements.js";
-import { addNote, attachDeleteButtonListeners, displayNoteOnClick, toggleHeaderSearch, toggleNotesList, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
+    pinnedNotesList, 
+    searchInput} from "./elements.js";
+import { addNote, attachDeleteButtonListeners, displayNoteOnClick, searchForNote, toggleHeaderSearch, toggleNotesList, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
 
 
 export const initListeners = () => {
@@ -35,5 +36,7 @@ export const initListeners = () => {
     });
 
     arrow.addEventListener("click", () => toggleNotesList());
+
+    searchInput.addEventListener("keyup", searchForNote);
 
 };

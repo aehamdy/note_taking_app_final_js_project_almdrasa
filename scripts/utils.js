@@ -10,6 +10,7 @@ import {authorField,
     notesView, 
     pinnedNotesList, 
     searchElement, 
+    searchInput, 
     searchInputLabel, 
     sidebar, 
     titleField 
@@ -204,6 +205,29 @@ export const deleteNote = (e, index, noteType) => {
     attachDeleteButtonListeners(noteType); // Reattach event listeners after every deletion process
     displayNoteOnClick();
 };
+
+export const searchForNote = () => {
+    const allNotes = getNotes();
+
+    allNotes.forEach(note => {
+        note.classList.contains("selected") && note.classList.remove("selected");
+    })
+    
+    const searchValue = searchInput.value;
+
+    allNotes.forEach(note => {
+        if (note.querySelector(".notes__note-title").textContent.toLowerCase().includes(searchValue.toLowerCase())) {
+            note.classList.add("selected");
+        }
+    });
+
+    if (searchValue === "") {
+        allNotes.forEach(note => {
+            note.classList.remove("selected");
+        })
+    }
+}
+
 
 
 /*

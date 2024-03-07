@@ -5,6 +5,7 @@
   --color-light-gray-2: #e7e7e9; /*notesListButtonBorder*/
   --color-light-gray-3: #f6f6f6; /*noteList bg-color / hover on note in notes list / adding note inputField bg-color*/
   --color-medium-gray-1: #303030; /*noteHeadingColor / menuButtonColor in mobile query*/
+  --color-selected: #faedcb;
   --color-white: #fff;
 
   --fw-4: 400;
@@ -383,6 +384,14 @@ ul {
       background-color: var(--color-accent);
     }
   }
+}
+
+.notes__note-item.selected {
+  background-color: var(--color-selected);
+}
+
+.notes__note-item.selected:hover {
+  background-color: var(--color-selected);
 }
 
 .notes__note-item:hover {
