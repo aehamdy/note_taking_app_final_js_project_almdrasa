@@ -11,6 +11,7 @@ import {authorField,
     pinnedNotesList, 
     searchElement, 
     searchInput, 
+    searchInputHeader, 
     searchInputLabel, 
     sidebar, 
     titleField 
@@ -206,14 +207,14 @@ export const deleteNote = (e, index, noteType) => {
     displayNoteOnClick();
 };
 
-export const searchForNote = () => {
+export const searchForNote = (e) => {
     const allNotes = getNotes();
 
     allNotes.forEach(note => {
         note.classList.contains("selected") && note.classList.remove("selected");
     })
     
-    const searchValue = searchInput.value;
+    const searchValue = e.target.value;
 
     allNotes.forEach(note => {
         if (note.querySelector(".notes__note-title").textContent.toLowerCase().includes(searchValue.toLowerCase())) {
@@ -226,8 +227,7 @@ export const searchForNote = () => {
             note.classList.remove("selected");
         })
     }
-}
-
+};
 
 
 /*
