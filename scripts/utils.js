@@ -235,7 +235,7 @@ export const searchForNote = (e) => {
     [x] Show the full note on click on it
     [x] Expand/Shrink notes list on clicking arrow icon
     [x] Add functionality to delete button
-    [ ] Add functionality for search inputs
+    [x] Add functionality for search inputs
     [ ] Add shake animation to empty fields when adding a new note
     [ ] Add pin/note icons to pinned & notes flags
 */

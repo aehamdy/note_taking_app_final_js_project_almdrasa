@@ -4,8 +4,6 @@ import { attachDeleteButtonListeners, displayNoteOnClick, getNotesOnLoad, } from
 
 window.addEventListener("DOMContentLoaded", () => {
 
-    console.log(searchInputHeader);
-    
     notesLabelSidebar.click();
 
     displayNoteOnClick();
