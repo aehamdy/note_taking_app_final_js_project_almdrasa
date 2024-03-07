@@ -339,6 +339,7 @@ ul {
   border-radius: var(--border-rad-10);
   cursor: pointer;
   transition: var(--transition-timing);
+  user-select: none;
 
   .notes__note-title {
     font-size: 1.5rem;
