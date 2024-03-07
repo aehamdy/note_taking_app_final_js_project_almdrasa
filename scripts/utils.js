@@ -1,5 +1,7 @@
 import {authorField, 
+    getNormalDeleteBtns, 
     getNotes, 
+    getPinnedDeleteBtns, 
     normalNotesList, 
     noteField, 
     notesForm, 
@@ -12,6 +14,7 @@ import {authorField,
     sidebar, 
     titleField 
 } from "./elements.js";
+import { initListeners } from "./eventListeners.js";
 
 export const toggleHeaderSearch = () => {
 
@@ -78,7 +81,7 @@ const saveToStorage = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
 };
 
-const getFromStorage = (key) => {
+export const getFromStorage = (key) => {
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : false;
 };
@@ -97,7 +100,7 @@ export const addNote = (notesType) => {
         date: getDate(),
     };
 
-    const notes = getFromStorage(notesType) || [];
+const notes = getFromStorage(notesType) || [];
 
     notes.unshift(note);
 
@@ -114,7 +117,8 @@ const renderNotes = (notes) => {
     
     if (Array.isArray(notes)) {
         notes.forEach(note => {
-            notesList += `<li class="notes__note-item">
+            notesList += `
+            <li class="notes__note-item">
             <h5 class="notes__note-title">${note.title}</h5>
             <div class="notes__note-content">${note.content}</div>
             <div class="notes__note-actions">
@@ -151,6 +155,7 @@ export const getAllNotes = () => {
             <div class="notes__content-preview">${noteContent}</div>`;
         });
     });
+
 };
 
 export const toggleNotesList = () => {
@@ -165,13 +170,35 @@ export const toggleNotesList = () => {
         arrow.style.right = "-10px";
         arrow.style.rotate = "0deg";
     }
-}
+};
+
+
+export const attachDeleteButtonListeners = (noteType) => {
+    const deleteButtons = noteType === 'notes' ? getNormalDeleteBtns() : getPinnedDeleteBtns();
+    deleteButtons.forEach((btn, index) => {
+        btn.addEventListener("click", e => {
+            e.stopPropagation();
+            deleteNote(e, index, noteType);
+        });
+    });
+};
+
 
 export const deleteNote = (e, index, noteType) => {
 
-    const data = getFromStorage(noteType);
-
+    let data = getFromStorage(noteType);
+    data.splice(index, 1);
     saveToStorage(noteType, data);
+    data = getFromStorage(noteType);
+    const notes = renderNotes(data);
+    if (noteType === "notes") {
+        normalNotesList.innerHTML = notes;
+    } else if (noteType === "pinnedNotes") {
+        pinnedNotesList.innerHTML = notes;
+    }
+    // Reattach event listeners
+    attachDeleteButtonListeners(noteType);
+    
 };
 
 

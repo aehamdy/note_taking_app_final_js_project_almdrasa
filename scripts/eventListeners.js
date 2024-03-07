@@ -6,7 +6,6 @@ import { addNoteBtn,
     headerSearchInput, 
     normalNotesList, 
     notesLabelSidebar, 
-    notesList, 
     pinnedNotesList } from "./elements.js";
 import { addNote, getAllNotes, toggleHeaderSearch, toggleNotesList, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
 
