@@ -486,7 +486,7 @@ ul {
       padding: var(--gutter-10);
       background-color: var(--color-light-gray-3);
       border: none;
-      border-bottom: 1px solid transparent;
+      /* border-bottom: 1px solid transparent; */
       border-radius: var(--border-rad-6);
       outline: none;
       caret-color: var(--color-accent);

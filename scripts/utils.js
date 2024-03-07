@@ -90,6 +90,8 @@ export const addNote = (notesType) => {
     const noteTitle = titleField.value;
     const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
     const noteBody = noteField.value;
+    
+    attachDeleteButtonListeners(notesType); 
 
     if (!noteTitle || !noteAuthor || !noteBody) return;
 
@@ -100,13 +102,14 @@ export const addNote = (notesType) => {
         date: getDate(),
     };
 
-const notes = getFromStorage(notesType) || [];
+    const notes = getFromStorage(notesType) || [];
 
     notes.unshift(note);
 
     saveToStorage(notesType, notes);
 
     const notesList = renderNotes(notes);
+    getAllNotes();
 
     return notesList;
 };
@@ -127,7 +130,7 @@ const renderNotes = (notes) => {
             </div>
             </li>`;
         });
-        
+
         return notesList;
     } else {
         return `<p class="notes__empty">No notes added yet</p>`;
@@ -142,20 +145,21 @@ export const getNotesOnLoad = () => {
     pinnedNotesList.innerHTML = pinnedNotes;
 };
 
+const getNoteContent = (e) => {
+    const noteTitle = e.currentTarget.querySelector(".notes__note-title").textContent;
+    const noteUpdated = e.currentTarget.querySelector(".notes__note-updated").textContent;
+    const noteContent = e.currentTarget.querySelector(".notes__note-content").textContent;
+
+    const notePreview = document.querySelector(".notes__preview");
+    notePreview.innerHTML =`<h5 class="notes__title-preview">${noteTitle}</h5>
+    <div class="notes__updated-preview">${noteUpdated}</div>
+    <div class="notes__content-preview">${noteContent}</div>`;
+}
+
 export const getAllNotes = () => {
     getNotes().forEach(note => {
-        note.addEventListener("click", e => {
-            const noteTitle = e.currentTarget.querySelector(".notes__note-title").textContent;
-            const noteUpdated = e.currentTarget.querySelector(".notes__note-updated").textContent;
-            const noteContent = e.currentTarget.querySelector(".notes__note-content").textContent;
-
-            const notePreview = document.querySelector(".notes__preview");
-            notePreview.innerHTML =`<h5 class="notes__title-preview">${noteTitle}</h5>
-            <div class="notes__updated-preview">${noteUpdated}</div>
-            <div class="notes__content-preview">${noteContent}</div>`;
-        });
+        note.addEventListener("click", getNoteContent);
     });
-
 };
 
 export const toggleNotesList = () => {
@@ -196,9 +200,9 @@ export const deleteNote = (e, index, noteType) => {
     } else if (noteType === "pinnedNotes") {
         pinnedNotesList.innerHTML = notes;
     }
-    // Reattach event listeners
-    attachDeleteButtonListeners(noteType);
-    
+
+    attachDeleteButtonListeners(noteType); // Reattach event listeners after every deletion process
+    getAllNotes();
 };
 
 
@@ -207,6 +211,7 @@ export const deleteNote = (e, index, noteType) => {
     [x] Show the full note on click on it
     [x] Expand/Shrink notes list on clicking arrow icon
     [x] Add functionality to delete button
-    [ ] Add shake animation too empty fields when adding a new note
+    [ ] Add functionality for search inputs
+    [ ] Add shake animation to empty fields when adding a new note
     [ ] Add pin/note icons to pinned & notes flags
 */
