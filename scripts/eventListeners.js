@@ -38,7 +38,6 @@ export const initListeners = () => {
 
     arrow.addEventListener("click", () => toggleNotesList());
 
-    searchInput.addEventListener("keyup", (e) => searchForNote(e));
-    searchInputHeader.addEventListener("keyup", (e) => searchForNote(e));
-
+    [searchInput, searchInputHeader].forEach(el => el.addEventListener("keyup", (e) => searchForNote(e)));
+    
 };
