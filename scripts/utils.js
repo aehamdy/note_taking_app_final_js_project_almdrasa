@@ -109,7 +109,7 @@ export const addNote = (notesType) => {
     saveToStorage(notesType, notes);
 
     const notesList = renderNotes(notes);
-    getAllNotes();
+    displayNoteOnClick();
 
     return notesList;
 };
@@ -156,7 +156,7 @@ const getNoteContent = (e) => {
     <div class="notes__content-preview">${noteContent}</div>`;
 }
 
-export const getAllNotes = () => {
+export const displayNoteOnClick = () => {
     getNotes().forEach(note => {
         note.addEventListener("click", getNoteContent);
     });
@@ -202,7 +202,7 @@ export const deleteNote = (e, index, noteType) => {
     }
 
     attachDeleteButtonListeners(noteType); // Reattach event listeners after every deletion process
-    getAllNotes();
+    displayNoteOnClick();
 };
 
 
