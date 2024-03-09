@@ -295,7 +295,7 @@ ul {
   overflow-y: scroll;
   /* scrollbar-color: #6969dd #fff;
   scrollbar-width: thin; */
-  transition: calc(var(--transition-timing) + 0.2s);
+  transition: calc(var(--transition-timing) + 0.6s);
 }
 
 .notes__list::-webkit-scrollbar {
