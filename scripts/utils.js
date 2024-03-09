@@ -86,10 +86,16 @@ export const getFromStorage = (key) => {
     return data ? JSON.parse(data) : false;
 };
 
-export const addNote = (notesType) => {
-    const noteTitle = titleField.value;
-    const noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
-    const noteBody = noteField.value;
+const clearFields = () => {
+    titleField.value = "";
+    authorField.value = "";
+    noteField.value = "";
+};
+
+export let addNote = (notesType) => {
+    let noteTitle = titleField.value;
+    let noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
+    let noteBody = noteField.value;
     
     attachDeleteButtonListeners(notesType); 
 
@@ -110,6 +116,7 @@ export const addNote = (notesType) => {
 
     const notesList = renderNotes(notes);
     displayNoteOnClick();
+    clearFields();
 
     return notesList;
 };
@@ -243,7 +250,7 @@ export const searchForNote = (e) => {
     [x] Add functionality for search inputs
     [x] Adjusted notes list scrollbar and made the the side bar heading responsive
     [x] Add "X" button inside displayed note to close the displayed note
-    [ ] Clear all from fields after click add note buttons
+    [x] Clear all from fields after click add note buttons
     [ ] Add shake animation to empty fields when adding a new note
     [ ] Add pin/note icons to pinned & notes flags
     [ ] Add pin icon to every pinned note

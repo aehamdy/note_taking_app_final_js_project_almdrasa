@@ -31,7 +31,7 @@ export const initListeners = () => {
     });
 
     addPinnedBtn.addEventListener("click", () => {
-        const notesList = addNote("pinnedNotes");
+        let notesList = addNote("pinnedNotes");
         pinnedNotesList.innerHTML = notesList;
         attachDeleteButtonListeners("pinnedNotes");
         displayNoteOnClick();
