@@ -150,7 +150,7 @@ const getNoteContent = (e) => {
     const noteContent = e.currentTarget.querySelector(".notes__note-content").textContent;
 
     const notePreview = document.querySelector(".notes__preview");
-    notePreview.innerHTML =`<h5 class="notes__title-preview">${noteTitle}</h5>
+    notePreview.innerHTML =`<h5 class="notes__title-preview">${noteTitle}<span class="notes__close-icon">X</span></h5>
     <div class="notes__updated-preview">${noteUpdated}</div>
     <div class="notes__content-preview">${noteContent}</div>`;
 }
