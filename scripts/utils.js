@@ -92,33 +92,44 @@ const clearFields = () => {
     noteField.value = "";
 };
 
-export let addNote = (notesType) => {
+export let addNote = (e) => {
+    
+    let noteType = "";
+    e.target.classList.contains("notes__addNote-btn") ? noteType = "notes" : noteType = "pinnedNotes";
+
     let noteTitle = titleField.value;
     let noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
     let noteBody = noteField.value;
     
-    attachDeleteButtonListeners(notesType); 
+    attachDeleteButtonListeners(noteType); 
 
-    if (!noteTitle || !noteAuthor || !noteBody) return;
+    if (!noteTitle || !noteAuthor || !noteBody) {
+        titleField.style.border = "1px solid red";
+        authorField.style.border = "1px solid red";
+        noteField.style.border = "1px solid red";
+        return;
+        
+    } else {
 
-    const note = {
-        title: noteTitle,
-        author: noteAuthor,
-        content: noteBody,
-        date: getDate(),
-    };
+        const note = {
+            title: noteTitle,
+            author: noteAuthor,
+            content: noteBody,
+            date: getDate(),
+        };
+    
+        const notes = getFromStorage(noteType) || [];
+        notes.unshift(note);
+        saveToStorage(noteType, notes);
 
-    const notes = getFromStorage(notesType) || [];
+        const notesList = renderNotes(notes);
+        noteType === "notes" ? normalNotesList.innerHTML = notesList : pinnedNotesList.innerHTML = notesList;
+        clearFields();
+    }
 
-    notes.unshift(note);
-
-    saveToStorage(notesType, notes);
-
-    const notesList = renderNotes(notes);
+    getNotesOnLoad();
+    attachDeleteButtonListeners(noteType); 
     displayNoteOnClick();
-    clearFields();
-
-    return notesList;
 };
 
 const renderNotes = (notes) => {

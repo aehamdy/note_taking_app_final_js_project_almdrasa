@@ -23,19 +23,21 @@ export const initListeners = () => {
 
     addNoteLabelSidebar.addEventListener("click", viewNoteForm);
 
-    addNoteBtn.addEventListener("click", () => {
-        const notesList = addNote("notes");
-        normalNotesList.innerHTML = notesList;
-        attachDeleteButtonListeners("notes"); 
-        displayNoteOnClick();
-    });
+    // addNoteBtn.addEventListener("click", () => {
+    //     const notesList = addNote("notes");
+    //     normalNotesList.innerHTML = notesList;
+    //     attachDeleteButtonListeners("notes"); 
+    //     displayNoteOnClick();
+    // });
 
-    addPinnedBtn.addEventListener("click", () => {
-        let notesList = addNote("pinnedNotes");
-        pinnedNotesList.innerHTML = notesList;
-        attachDeleteButtonListeners("pinnedNotes");
-        displayNoteOnClick();
-    });
+    // addPinnedBtn.addEventListener("click", () => {
+    //     let notesList = addNote("pinnedNotes");
+    //     pinnedNotesList.innerHTML = notesList;
+    //     attachDeleteButtonListeners("pinnedNotes");
+    //     displayNoteOnClick();
+    // });
+    addNoteBtn.addEventListener("click", e => addNote(e));
+    addPinnedBtn.addEventListener("click", e => addNote(e));
 
     arrow.addEventListener("click", () => toggleNotesList());
 
