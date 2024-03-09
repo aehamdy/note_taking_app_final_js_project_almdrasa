@@ -153,10 +153,7 @@ export const getNotesOnLoad = () => {
 };
 
 const closeNote = () => {
-    notesPreview.style.display = "none";
-    displayNoteOnClick();
     notesPreview.innerHTML = "";
-    notesPreview.style.display = "flex";
 }
 
 const getNoteContent = (e) => {
