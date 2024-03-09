@@ -10,13 +10,10 @@ import {authorField,
     notesView, 
     pinnedNotesList, 
     searchElement, 
-    searchInput, 
-    searchInputHeader, 
     searchInputLabel, 
     sidebar, 
     titleField 
 } from "./elements.js";
-import { initListeners } from "./eventListeners.js";
 
 export const toggleHeaderSearch = () => {
 
@@ -178,7 +175,6 @@ export const toggleNotesList = () => {
     }
 };
 
-
 export const attachDeleteButtonListeners = (noteType) => {
     const deleteButtons = noteType === 'notes' ? getNormalDeleteBtns() : getPinnedDeleteBtns();
     deleteButtons.forEach((btn, index) => {
@@ -188,7 +184,6 @@ export const attachDeleteButtonListeners = (noteType) => {
         });
     });
 };
-
 
 export const deleteNote = (e, index, noteType) => {
 
@@ -236,6 +231,11 @@ export const searchForNote = (e) => {
     [x] Expand/Shrink notes list on clicking arrow icon
     [x] Add functionality to delete button
     [x] Add functionality for search inputs
+    [x] Adjusted notes list scrollbar and made the the side bar heading responsive
+    [ ] Add "X" button inside displayed note to close the displayed note
+    [ ] Clear all from fields after click add note buttons
     [ ] Add shake animation to empty fields when adding a new note
     [ ] Add pin/note icons to pinned & notes flags
+    [ ] Add pin icon to every pinned note
+
 */

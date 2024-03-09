@@ -9,7 +9,8 @@ import { addNoteBtn,
     pinnedNotesList, 
     searchInput,
     searchInputHeader,} from "./elements.js";
-import { addNote, attachDeleteButtonListeners, displayNoteOnClick, searchForNote, toggleHeaderSearch, toggleNotesList, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
+import { addNote, attachDeleteButtonListeners, displayNoteOnClick, searchForNote, 
+    toggleHeaderSearch, toggleNotesList, toggleSidebar, viewNoteForm, viewNotes } from "./utils.js";
 
 
 export const initListeners = () => {
