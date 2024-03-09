@@ -1,10 +1,10 @@
 :root {
   --color-accent: #ec7160;
   --color-accent-hover: #d82600;
-  --color-light-gray-1: #898989; /*noteFontColor/dateColor/notesListButton of note in note list/text/icon of searchInputField / adding note input field label's color*/
-  --color-light-gray-2: #e7e7e9; /*notesListButtonBorder*/
-  --color-light-gray-3: #f6f6f6; /*noteList bg-color / hover on note in notes list / adding note inputField bg-color*/
-  --color-medium-gray-1: #303030; /*noteHeadingColor / menuButtonColor in mobile query*/
+  --color-light-gray-1: #898989;
+  --color-light-gray-2: #e7e7e9;
+  --color-light-gray-3: #f6f6f6;
+  --color-medium-gray-1: #303030;
   --color-selected: #faedcb;
   --color-white: #fff;
 
@@ -203,7 +203,6 @@ ul {
 
   #header-menu-input,
   #header-search-icon {
-    /* appearance: none; */
     display: none;
   }
 
@@ -293,8 +292,6 @@ ul {
   padding: 30px 0;
   border-inline-end: 1px solid var(--color-light-gray-2);
   overflow-y: scroll;
-  /* scrollbar-color: #6969dd #fff;
-  scrollbar-width: thin; */
   transition: calc(var(--transition-timing) + 0.6s);
 }
 
@@ -475,7 +472,6 @@ ul {
   .notes__updated-preview {
     color: var(--color-light-gray-1);
     font-weight: var(--fw-4);
-    /* text-decoration: underline; */
   }
 
   .notes__content-preview {
@@ -535,7 +531,6 @@ ul {
       padding: var(--gutter-10);
       background-color: var(--color-light-gray-3);
       border: none;
-      /* border-bottom: 1px solid transparent; */
       border-radius: var(--border-rad-6);
       outline: none;
       caret-color: var(--color-accent);
@@ -554,6 +549,10 @@ ul {
 
     textarea:focus {
       border-bottom: 1px solid var(--color-accent);
+    }
+
+    .invalid {
+      border: 1px solid red;
     }
   }
 

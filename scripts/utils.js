@@ -93,23 +93,36 @@ const clearFields = () => {
 };
 
 export let addNote = (e) => {
-    
+
     let noteType = "";
-    e.target.classList.contains("notes__addNote-btn") ? noteType = "notes" : noteType = "pinnedNotes";
+    let isValid = true;
 
-    let noteTitle = titleField.value;
-    let noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
-    let noteBody = noteField.value;
+    [titleField, authorField, noteField].forEach(field => {
+
+        if (field.value.trim() === "") {
+
+            field.classList.add("invalid");
+
+            setTimeout(() => {
+                field.classList.remove("invalid");
+            }, 2000);
+
+            isValid = false;
+
+        } else {
+            return;
+        }
+    });
+
+    if (isValid) {
+
+        e.target.classList.contains("notes__addNote-btn") ? noteType = "notes" : noteType = "pinnedNotes";
     
-    attachDeleteButtonListeners(noteType); 
-
-    if (!noteTitle || !noteAuthor || !noteBody) {
-        titleField.style.border = "1px solid red";
-        authorField.style.border = "1px solid red";
-        noteField.style.border = "1px solid red";
-        return;
+        let noteTitle = titleField.value;
+        let noteAuthor = authorField.value.slice(0, 1).toUpperCase()+authorField.value.slice(1).toLowerCase();
+        let noteBody = noteField.value;
         
-    } else {
+        attachDeleteButtonListeners(noteType); 
 
         const note = {
             title: noteTitle,
@@ -117,7 +130,7 @@ export let addNote = (e) => {
             content: noteBody,
             date: getDate(),
         };
-    
+
         const notes = getFromStorage(noteType) || [];
         notes.unshift(note);
         saveToStorage(noteType, notes);
@@ -248,19 +261,3 @@ export const searchForNote = (e) => {
         })
     }
 };
-
-
-/*
-    [x] Get notes from local storage on loading the page
-    [x] Show the full note on click on it
-    [x] Expand/Shrink notes list on clicking arrow icon
-    [x] Add functionality to delete button
-    [x] Add functionality for search inputs
-    [x] Adjusted notes list scrollbar and made the the side bar heading responsive
-    [x] Add "X" button inside displayed note to close the displayed note
-    [x] Clear all from fields after click add note buttons
-    [ ] Add shake animation to empty fields when adding a new note
-    [ ] Add pin/note icons to pinned & notes flags
-    [ ] Add pin icon to every pinned note
-
-*/
