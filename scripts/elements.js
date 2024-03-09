@@ -23,3 +23,4 @@ export const searchInputHeader = document.querySelector(".notes__header-searchFi
 export const getNotes = () => document.querySelectorAll(".notes__note-item");
 export const getPinnedDeleteBtns = () => document.querySelectorAll(".notes__pinned-list .notes__note-delete");
 export const getNormalDeleteBtns = () => document.querySelectorAll(".notes__notes-list .notes__note-delete");
+export const noteCloseIcon = () => document.querySelector(".notes__close-icon");

@@ -3,6 +3,7 @@ import {authorField,
     getNotes, 
     getPinnedDeleteBtns, 
     normalNotesList, 
+    noteCloseIcon, 
     noteField, 
     notesForm, 
     notesList, 
@@ -144,6 +145,13 @@ export const getNotesOnLoad = () => {
     pinnedNotesList.innerHTML = pinnedNotes;
 };
 
+const closeNote = () => {
+    notesPreview.style.display = "none";
+    displayNoteOnClick();
+    notesPreview.innerHTML = "";
+    notesPreview.style.display = "flex";
+}
+
 const getNoteContent = (e) => {
     const noteTitle = e.currentTarget.querySelector(".notes__note-title").textContent;
     const noteUpdated = e.currentTarget.querySelector(".notes__note-updated").textContent;
@@ -153,6 +161,8 @@ const getNoteContent = (e) => {
     notePreview.innerHTML =`<h5 class="notes__title-preview">${noteTitle}<span class="notes__close-icon">X</span></h5>
     <div class="notes__updated-preview">${noteUpdated}</div>
     <div class="notes__content-preview">${noteContent}</div>`;
+    // console.log(noteCloseIcon());
+    noteCloseIcon().addEventListener("click", () => closeNote());
 }
 
 export const displayNoteOnClick = () => {
@@ -232,7 +242,7 @@ export const searchForNote = (e) => {
     [x] Add functionality to delete button
     [x] Add functionality for search inputs
     [x] Adjusted notes list scrollbar and made the the side bar heading responsive
-    [ ] Add "X" button inside displayed note to close the displayed note
+    [x] Add "X" button inside displayed note to close the displayed note
     [ ] Clear all from fields after click add note buttons
     [ ] Add shake animation to empty fields when adding a new note
     [ ] Add pin/note icons to pinned & notes flags
